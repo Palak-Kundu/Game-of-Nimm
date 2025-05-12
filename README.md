@@ -30,7 +30,6 @@ This Python implementation supports:
 
 ---
 
-## 🚀 Running the Game
 ## 🧪 Example Gameplay
 Do you want to be Player 1 or 2? (Enter 1 or 2): 1
 Should the computer play smart? (y/n): y
