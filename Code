@@ -27,4 +27,34 @@ def main():
 
     player = 1  # Player 1 starts
 
-    
+    # Game loop
+    while stones > 0:
+        print(f"\nThere are {stones} stones left.")
+
+        if player == human_player:
+            print(f"Player {human_player} (You):")
+            move = get_valid_move(stones)
+        else:
+            print(f"Player {computer_player} (Computer):")
+            move = computer_move(stones, smart=smart_ai)
+            print(f"Computer removes {move} stone(s).")
+
+        stones -= move
+
+        if stones == 0:
+            winner = human_player if player != human_player else computer_player
+            if winner == human_player:
+                print("You win!")
+            else:
+                print("Computer wins!")
+            break
+
+        # Divisible-by-3 rule
+        if stones % 3 == 0:
+            print(f"{stones} is divisible by 3, Player {player} gets another turn!")
+        else:
+            player = 2 if player == 1 else 1
+
+    print("Game over")
+if __name__ == '__main__':
+    main()
