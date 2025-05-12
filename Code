@@ -1,0 +1,20 @@
+import random
+def main():  
+    def get_valid_move(stones_left):
+        move = int(input(f"Would you like to remove 1, 2, or 3 stones? "))
+        while move not in [1, 2, 3] or move > stones_left:
+            move = int(input("Please enter 1, 2, or 3 (and not more than remaining stones): "))
+        return move
+
+    def computer_move(stones_left, smart=True):
+        if smart:
+            # Try to leave a multiple of 4
+            for move in [1, 2, 3]:
+                if stones_left - move >= 0 and (stones_left - move) % 4 == 0:
+                    return move
+            # No winning move, pick 1
+            return min(3, stones_left)
+        else:
+            return random.choice([m for m in [1, 2, 3] if m <= stones_left])
+
+    
