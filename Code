@@ -17,4 +17,14 @@ def main():
         else:
             return random.choice([m for m in [1, 2, 3] if m <= stones_left])
 
+    # Game setup
+    stones = 20
+    human_player = int(input("Do you want to be Player 1 or 2? (Enter 1 or 2): "))
+    computer_player = 2 if human_player == 1 else 1
+
+    ai_type = input("Should the computer play smart? (y/n): ").lower()
+    smart_ai = ai_type == 'y'
+
+    player = 1  # Player 1 starts
+
     
